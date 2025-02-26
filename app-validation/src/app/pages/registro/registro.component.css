@@ -1,13 +1,133 @@
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap');
 
-.form-group {
-  margin-bottom: 15px;
-}
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --light-bg: #ecf0f1;
+    --input-border: #ccc;
+    --input-focus-border: #3498db;
+    --button-hover-bg: #2980b9;
+    --button-focus-bg: #2980b9;
+    --text-color: #333;
+  }
 
-button {
-  width: 100%;
-}
+  :host {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  input:focus {
+    border-color: var(--input-focus-border);
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    background-color: #2980b9;
+    transition: background-color 0.3s ease;
+  }
+
+  button:disabled {
+    background-color: #bdc3c7;
+  }
+
+  button:hover:not(:disabled) {
+    background-color: #72b4d8;
+  }
+
+  .mt-4 {
+    margin-top: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  ul li {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  ul li:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+
+  ul li span {
+    font-weight: bold;
+  }
+
+  .spinner {
+    display: inline-block;
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+
+    button {
+      font-size: 1rem;
+    }
+  }

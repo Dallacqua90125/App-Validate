@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --light-bg: #ecf0f1;
+  --input-border: #ccc;
+  --input-focus-border: #3498db;
+  --button-hover-bg: #2980b9;
+  --button-focus-bg: #2980b9;
+  --text-color: #333;
+}
+
 :host {
   font-family: 'Inter', sans-serif;
   background-color: #f4f4f4;
@@ -65,31 +78,6 @@ button:disabled {
 
 button:hover:not(:disabled) {
   background-color: #72b4d8;
-}
-
-.mt-4 {
-  margin-top: 20px;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-ul li {
-  padding: 10px;
-  margin: 10px 0;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-ul li:nth-child(odd) {
-  background-color: #f1f1f1;
-}
-
-ul li span {
-  font-weight: bold;
 }
 
 .spinner {

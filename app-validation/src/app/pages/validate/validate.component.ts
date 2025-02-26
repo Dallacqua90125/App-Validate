@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ValidationServiceService } from '../../../services/users/validation-service.service';
+import { UsersServiceService } from '../../../services/users/users-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-validate',
@@ -9,41 +10,30 @@ import { ValidationServiceService } from '../../../services/users/validation-ser
 })
 
 export class ValidateComponent {
-  email: string = '';  // O e-mail será atribuído aqui
-  code: string = '';   // O código de validação
+  email: string = '';
+  code: string = '';
+  isLoading: boolean = false;
 
-  constructor(private validationService: ValidationServiceService) {}
+  constructor(private usersService: UsersServiceService, private router: Router) {}
 
   ngOnInit(): void {
-    // Pegando o e-mail e código de verificação do localStorage
-    this.email = localStorage.getItem('userEmail') || '';  // Pegando o e-mail
-    this.code = localStorage.getItem('emailVerificationCode') || '';  // Pegando o código de verificação
+    this.email = localStorage.getItem('email') || '';
+    this.code = localStorage.getItem('code') || '';
   }
 
   onSubmit(): void {
-    this.validationService.validateEmail(this.email, this.code).subscribe(
+    this.isLoading = true;
+    this.usersService.validateEmail(this.email, this.code).subscribe(
       (response) => {
         alert('E-mail validado com sucesso!');
-        // Atualiza o isEmailVerified para true no localStorage após a validação
         localStorage.setItem('isEmailVerified', 'true');
-        // Ou se você quiser também atualizar o usuário com isEmailVerified = true:
-        // this.updateUserVerificationStatus();
+        this.isLoading = false;
+        this.router.navigate(['/home'])
       },
       (error) => {
         alert('Erro ao validar o e-mail. Verifique o código e tente novamente.');
+        this.isLoading = false;
       }
     );
   }
-
-  // Caso queira atualizar o estado do usuário em algum serviço, como a API, você pode fazer isso:
-  // updateUserVerificationStatus() {
-  //   this.validationService.updateUserVerificationStatus(this.email).subscribe(
-  //     (response) => {
-  //       // Lógica após atualização
-  //     },
-  //     (error) => {
-  //       console.error('Erro ao atualizar status de verificação');
-  //     }
-  //   );
-  // }
 }

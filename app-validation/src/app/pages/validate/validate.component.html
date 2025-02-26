@@ -2,17 +2,6 @@
   <h2>Validação de E-mail</h2>
 
   <form (ngSubmit)="onSubmit()" #validateForm="ngForm">
-    <div class="form-group">
-      <label for="email">E-mail</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        class="form-control"
-        [(ngModel)]="email"
-        required
-      />
-    </div>
 
     <div class="form-group">
       <label for="code">Código de Verificação</label>
@@ -27,7 +16,10 @@
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary" [disabled]="!validateForm.form.valid">Validar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!validateForm.form.valid || isLoading">
+        <span *ngIf="isLoading" class="spinner"></span>
+        {{ isLoading ? 'Cadastrando...' : 'Registrar' }}
+      </button>
     </div>
   </form>
 </div>

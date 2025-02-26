@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left, .navbar-center, .navbar-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-center {
+  justify-content: center;
+}
+
+.navbar-right {
+  justify-content: flex-end;
+}
+
+.menu, .profile {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Estilos para hover e interatividade */
+.menu:hover, .profile:hover {
+  opacity: 0.8;
+}

@@ -7,13 +7,19 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidateComponent } from './pages/validate/validate.component';
+import { HomeComponent } from './pages/home/home/home.component';
+import { ProfileComponent } from './pages/profile/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
-    ValidateComponent
+    ValidateComponent,
+    HomeComponent,
+    ProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
