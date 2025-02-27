@@ -18,7 +18,9 @@ export class RegistroComponent {
     telefone: '',
     password: '',
     emailVerificationCode: '',
-    isEmailVerified: false
+    isEmailVerified: false,
+    resetPasswordToken: '',
+    resetPasswordTokenExpiry: new Date(),
   };
   isLoading: boolean = false;
 
@@ -30,11 +32,11 @@ export class RegistroComponent {
     this.user.createUser(this.newUser).subscribe(
       (novo) => {
         this.allUsers.push(novo);
-        localStorage.setItem('id', this.newUser.id.toString());
-        localStorage.setItem('email', this.newUser.email);
-        localStorage.setItem('code', this.newUser.emailVerificationCode);
+        localStorage.setItem('id', novo.id.toString());
+        localStorage.setItem('email', novo.email);
+        localStorage.setItem('code', novo.emailVerificationCode);
 
-        this.newUser = { id: 0, nome: '', email: '', telefone: '', password: '', emailVerificationCode: '', isEmailVerified: false };
+        this.newUser = { id: 0, nome: '', email: '', telefone: '', password: '', emailVerificationCode: '', isEmailVerified: false,resetPasswordToken: '', resetPasswordTokenExpiry: new Date()};
 
         alert("Email criado com sucesso, verifique seu email para validação");
 

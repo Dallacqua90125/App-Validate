@@ -18,10 +18,10 @@ export class ValidateComponent {
 
   ngOnInit(): void {
     this.email = localStorage.getItem('email') || '';
-    this.code = localStorage.getItem('code') || '';
   }
 
   onSubmit(): void {
+
     this.isLoading = true;
     this.usersService.validateEmail(this.email, this.code).subscribe(
       (response) => {

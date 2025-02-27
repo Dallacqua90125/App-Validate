@@ -34,4 +34,14 @@ export class UsersServiceService {
   getUserById(id: number): Observable<Users> {
     return this.http.get<Users>(`${this.apiUrl}/${id}`);
   }
+
+  resetPassword(email: string): Observable<string> {
+    const resetUrl = `${this.apiUrl}/forgot-password`;
+    return this.http.post<string>(resetUrl, { email }, { responseType: 'text' as 'json' });
+  }
+
+  updatePassword(email: string, token: string, newPassword: string): Observable<string> {
+    const updateUrl = `${this.apiUrl}/update-password`;
+    return this.http.post<string>(updateUrl, { email, token, newPassword }, { responseType: 'text' as 'json' });
+  }
 }

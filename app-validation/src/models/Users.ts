@@ -6,4 +6,6 @@ export interface Users {
   password: string;
   emailVerificationCode: string;
   isEmailVerified: boolean;
+  resetPasswordToken: string;
+  resetPasswordTokenExpiry: Date;
 }

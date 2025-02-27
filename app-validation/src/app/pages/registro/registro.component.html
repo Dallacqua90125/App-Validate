@@ -59,10 +59,8 @@
     </div>
   </form>
 
-  <div *ngIf="allUsers.length > 0" class="mt-4">
-    <h3>Usuários Registrados:</h3>
-    <ul>
-      <li *ngFor="let user of allUsers">{{ user.email }} - {{ user.isEmailVerified ? 'Verificado' : 'Não Verificado' }}</li>
-    </ul>
+  <div class="form-group">
+    <button routerLink="/reset-password" class="btn btn-primary">
+      Esqueceu sua senha
+    </button>
   </div>
-</div>

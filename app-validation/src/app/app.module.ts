@@ -10,6 +10,8 @@ import { ValidateComponent } from './pages/validate/validate.component';
 import { HomeComponent } from './pages/home/home/home.component';
 import { ProfileComponent } from './pages/profile/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PasswordResetComponent } from './pages/password-reset/password-reset.component';
+import { PasswordUpdateComponent } from './pages/password-update/password-update.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ValidateComponent,
     HomeComponent,
     ProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    PasswordResetComponent,
+    PasswordUpdateComponent
   ],
   imports: [
     BrowserModule,
