@@ -39,7 +39,7 @@ export class PasswordUpdateComponent implements OnInit {
     this.userService.updatePassword(this.email, this.resetCode, this.newPassword).subscribe(
       (response) => {
         alert("Senha redefinida com sucesso! Faça login novamente.");
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
         this.isLoading = false;
       },
       (error) => {

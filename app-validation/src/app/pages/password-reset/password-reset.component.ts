@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsersServiceService } from '../../../services/users/users-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-password-reset',
@@ -11,7 +12,7 @@ export class PasswordResetComponent {
   email: string = '';
   isLoading: boolean = false;
 
-  constructor(private userService: UsersServiceService) {}
+  constructor(private userService: UsersServiceService, private router: Router) {}
 
   onResetPassword(): void {
     if (!this.email) {
@@ -25,6 +26,7 @@ export class PasswordResetComponent {
       (response) => {
         alert("Se o e-mail estiver cadastrado, um link de redefinição foi enviado.");
         this.isLoading = false;
+        this.router.navigate(['/update-password']);
       },
       (error) => {
         alert("Erro ao solicitar redefinição de senha. Tente novamente.");

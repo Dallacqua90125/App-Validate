@@ -40,6 +40,11 @@ export class UsersServiceService {
     return this.http.post<string>(resetUrl, { email }, { responseType: 'text' as 'json' });
   }
 
+  updateUser(user: Partial<Users>): Observable<Users> {
+    const updateUrl = `${this.apiUrl}/${user.id}`;
+    return this.http.put<Users>(updateUrl, user);
+  }
+
   updatePassword(email: string, token: string, newPassword: string): Observable<string> {
     const updateUrl = `${this.apiUrl}/reset-password`;
     return this.http.post<string>(updateUrl, { email, token, newPassword }, { responseType: 'text' as 'json' });
