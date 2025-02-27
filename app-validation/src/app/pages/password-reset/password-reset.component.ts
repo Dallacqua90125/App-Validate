@@ -19,7 +19,6 @@ export class PasswordResetComponent {
       return;
     }
 
-    console.log('Email enviado para recuperação: ', this.email);  // Verifique o valor do email
     this.isLoading = true;
 
     this.userService.resetPassword(this.email).subscribe(
@@ -28,7 +27,6 @@ export class PasswordResetComponent {
         this.isLoading = false;
       },
       (error) => {
-        console.error("Erro ao solicitar redefinição de senha", error);  // Log do erro
         alert("Erro ao solicitar redefinição de senha. Tente novamente.");
         this.isLoading = false;
       }

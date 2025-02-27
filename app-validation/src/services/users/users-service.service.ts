@@ -41,7 +41,7 @@ export class UsersServiceService {
   }
 
   updatePassword(email: string, token: string, newPassword: string): Observable<string> {
-    const updateUrl = `${this.apiUrl}/update-password`;
+    const updateUrl = `${this.apiUrl}/reset-password`;
     return this.http.post<string>(updateUrl, { email, token, newPassword }, { responseType: 'text' as 'json' });
   }
 }

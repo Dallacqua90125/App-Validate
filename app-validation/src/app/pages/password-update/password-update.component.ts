@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersServiceService } from '../../../services/users/users-service.service';
 
@@ -8,39 +8,42 @@ import { UsersServiceService } from '../../../services/users/users-service.servi
   templateUrl: './password-update.component.html',
   styleUrl: './password-update.component.css'
 })
-export class PasswordUpdateComponent {
-  email: string = '';
-  token: string = '';
+export class PasswordUpdateComponent implements OnInit {
+  resetCode: string = '';
   newPassword: string = '';
+  email: string = '';
   isLoading: boolean = false;
 
   constructor(
-    private route: ActivatedRoute,
     private userService: UsersServiceService,
-    private router: Router
-  ) {
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.email = params['email'] || '';
-      this.token = params['token'] || '';
+      this.resetCode = params['token'];
     });
+
+    this.email = localStorage.getItem('userEmail') || '';
   }
 
   onUpdatePassword(): void {
-    if (!this.newPassword) {
-      alert("Por favor, insira sua nova senha.");
+    if (!this.resetCode || !this.newPassword || !this.email) {
+      alert("Por favor, insira o código, e-mail e a nova senha.");
       return;
     }
 
     this.isLoading = true;
 
-    this.userService.updatePassword(this.email, this.token, this.newPassword).subscribe(
+    this.userService.updatePassword(this.email, this.resetCode, this.newPassword).subscribe(
       (response) => {
         alert("Senha redefinida com sucesso! Faça login novamente.");
         this.router.navigate(['/login']);
         this.isLoading = false;
       },
       (error) => {
-        alert("Erro ao redefinir senha. Verifique o link e tente novamente.");
+        alert("Erro ao redefinir a senha. Verifique o código e tente novamente.");
         this.isLoading = false;
       }
     );
