@@ -53,7 +53,7 @@ export class ProfileComponent {
         nome: this.nome,
         email: this.email,
         telefone: this.telefone,
-        password: "",
+        password: this.senha,
         emailVerificationCode: '',
         isEmailVerified: false,
         resetPasswordToken: '',

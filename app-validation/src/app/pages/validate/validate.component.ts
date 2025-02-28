@@ -28,7 +28,7 @@ export class ValidateComponent {
         alert('E-mail validado com sucesso!');
         localStorage.setItem('isEmailVerified', 'true');
         this.isLoading = false;
-        this.router.navigate(['/home'])
+        this.router.navigate(['/login'])
       },
       (error) => {
         alert('Erro ao validar o e-mail. Verifique o código e tente novamente.');

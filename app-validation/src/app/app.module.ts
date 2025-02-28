@@ -12,6 +12,8 @@ import { ProfileComponent } from './pages/profile/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PasswordResetComponent } from './pages/password-reset/password-reset.component';
 import { PasswordUpdateComponent } from './pages/password-update/password-update.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SmsValidateComponent } from './pages/sms-validate/sms-validate.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { PasswordUpdateComponent } from './pages/password-update/password-update
     ProfileComponent,
     NavbarComponent,
     PasswordResetComponent,
-    PasswordUpdateComponent
+    PasswordUpdateComponent,
+    LoginComponent,
+    SmsValidateComponent
   ],
   imports: [
     BrowserModule,
